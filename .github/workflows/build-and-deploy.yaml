@@ -1,4 +1,4 @@
-# 2
+# 4
 name: Deploy Nginx
 
 on:
@@ -33,6 +33,6 @@ jobs:
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
-          gcloud container clusters get-credentials autopilot-cluster-1 --region asia-southeast1
+          gcloud container clusters get-credentials cicd --region asia-southeast1
           sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" resources.yaml
           kubectl apply -f resources.yaml
